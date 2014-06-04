@@ -1,0 +1,40 @@
+body {
+padding: 20px;
+}
+
+ul, li {
+padding: 5px;	
+}
+
+p {
+	color: #ff0000; font-weight: bold;
+}
+
+pre {
+margin-top: 5px; margin-left: 0px;		
+}
+
+.jumbotron {
+	border-width: 1px;
+border-radius: 8px;
+}
+
+.btn-lg-FF0000 {
+	background: #FF0000; color:#FF0000;
+	text-shadow:none;
+}
+
+.btn-lg-0000FF {
+	background: #0000FF; color:#0000FF;
+	text-shadow:none;
+}
+
+.btn-lg-FF00FF {
+	background: #FF00FF; color:#FF00FF;
+	text-shadow:none;
+}
+
+.btn-lg-00FFFF {
+	background: #00FFFF; color:#00FFFF;
+	text-shadow:none;
+}

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  preserveAspectRatio="none" viewBox="0 0 5 3" 
+id="svg" onclick="javascript:location.href='../'">
+
+<desc>
+A simple svg page with linear gradients and two colors
+
+</desc>
+  
+
+<style type="text/css" >
+<![CDATA[
+
+
+/* custom styles */
+
+
+]]>
+</style>
+<defs id="templates">
+
+<radialGradient id="RadialGradient_A"
+           fx="50%" fy="50%" r="100%"
+           spreadMethod="pad">
+          <stop offset="0%"   stop-color="#ff3300" stop-opacity="1"/>
+          
+          <stop offset="100%" stop-color="#ffcc33" stop-opacity="1" />
+</radialGradient>
+
+<linearGradient id="LinearGradient_A">
+        <stop offset="5%" stop-color="#ff3300" />
+        <stop offset="95%" stop-color="#ffcc33" />
+</linearGradient>
+
+</defs>
+
+<g id="layer_0">
+<rect id="frame" width="5" height="3" y="0" x="0" fill="url(#LinearGradient_A)"/>
+
+</g> 
+
+
+</svg>

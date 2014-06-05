@@ -17,18 +17,19 @@ Step 1.1: A simple index page with a link to a sample svg file which points back
 
 Step 2.1: See base color picker with square panels (4 only for now) in html.
 
-Step 2.2: Click on square with desired color to get a preview in full screen
+Step 2.2: Click on square with desired color to get a preview in full screen.
 
+3. The background color can be changed to radial gradient with two colors.
 
+Step 3.1: Prepare a simple svg page with radial gradients and two colors.
 
+4. The background color can be changed to linear gradient with of two colors.
 
-3. The color of the background can be changed to radial gradient with two colors.
+Step 4.1: Prepare a simple svg page with linear gradients and two colors.
 
-4. The color of the background can be changed to linear gradient with of two colors.
+5. The background consists of radial patterns with two colors.
 
-5. The background can be composed of radial patterns with two colors.
-
-6. The background can be composed of linear patterns with two colors.
+6. The background consists of linear patterns with two colors.
 
 7. The status of a background can be saved to reuse it later.
 

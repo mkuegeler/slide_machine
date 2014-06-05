@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  preserveAspectRatio="none" viewBox="0 0 5 3" 
+id="svg" onclick="javascript:location.href='../'">
+
+<desc>
+A simple svg page with tiled pattern
+</desc>
+  
+
+<style type="text/css" >
+<![CDATA[
+
+
+/* custom styles */
+rect.pattern { stroke:none; fill:#ffcc33; }
+
+
+]]>
+</style>
+<defs id="templates">
+
+<radialGradient id="RadialGradient_A"
+           fx="50%" fy="50%" r="100%"
+           spreadMethod="pad">
+          <stop offset="0%"   stop-color="#ff3300" stop-opacity="1"/>
+          
+          <stop offset="100%" stop-color="#ffcc33" stop-opacity="1" />
+</radialGradient>
+
+<linearGradient id="LinearGradient_A">
+        <stop offset="5%" stop-color="#ff3300" />
+        <stop offset="95%" stop-color="#ffcc33" />
+</linearGradient>
+
+<pattern id="muster_1" patternUnits="userSpaceOnUse" width="0.25" height="0.25" x="0" y="0">
+      
+      <rect width="0.25" height="0.25" y="0.015" x="0.015" class="pattern"/>
+      
+</pattern>
+
+<pattern id="muster_2" patternUnits="userSpaceOnUse" width="0.25" height="0.25" x="0" y="0">
+      
+      <rect width="0.25" height="0.25" y="0.010" x="0.010" class="pattern"/>
+      
+</pattern>
+
+<pattern id="muster_3" patternUnits="userSpaceOnUse" width="0.25" height="0.25" x="0" y="0">
+      
+      <rect width="0.25" height="0.25" y="0.008" x="0.008" class="pattern"/>
+      
+</pattern>
+
+<pattern id="muster_4" patternUnits="userSpaceOnUse" width="1" height="1" x="0" y="0">
+      
+      <rect width="1" height="1" y="0.008" x="0.008" class="pattern"/>
+      
+</pattern>
+
+</defs>
+
+<g id="layer_0">
+<rect id="frame" width="5" height="3" y="-0.008" x="-0.008" fill="url(#muster_4)"/>
+
+</g> 
+
+
+</svg>

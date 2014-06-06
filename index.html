@@ -70,8 +70,24 @@ This project examines the power of vector graphics in web browsers and is theref
 	    <li class="list-group-item">5.1. A simple svg page with a tiled pattern.</li>
 		<li class="list-group-item">5.1.1. Example: <a href="samples/5.1.1.svg">5.1.1.svg</a></li>
 		<li class="list-group-item">
-			<code>preserveAspectRatio="none"</code>
-			<code>patternUnits="userSpaceOnUse"</code>
+			<div>The responsive behavior of the background is controlled by these attributes:<br/><br/>
+			
+				In "svg": <code>preserveAspectRatio="none"</code><br/>
+				In "pattern": <code>patternUnits="userSpaceOnUse"</code><br/><br/>
+			    
+			    The vertical and horizontal tiling of the background is defined by changing these attributes:<br/><br/>
+				In "svg": <code>viewBox="0 0 5 3"</code><br/><br/>
+				
+				The attributes "width" and "height" of the "rect" element which contains the background need to be changed accordingly:<br/><br/>
+				In "rect": <code>width="5" height="3"</code><br/><br/>
+				
+				The gap between tiles of the pattern is defined by y and y in "rect" respectively:<br/><br/>
+				In "rect" nested in "pattern": <code>y="0.05" x="0.05"</code><br/> 
+				In "rect" which contains the background: <code>y="-0.05" x="-0.05"</code>
+				
+				
+			</div>
+			
 		</li>
 	</ul>
 </div>

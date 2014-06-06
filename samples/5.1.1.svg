@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  preserveAspectRatio="none" viewBox="0 0 5 3" 
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  preserveAspectRatio="none" viewBox="0 0 15 15" 
 id="svg" onclick="javascript:location.href='../'">
 
 <desc>
@@ -51,14 +51,14 @@ rect.pattern { stroke:none; fill:#ffcc33; }
 
 <pattern id="muster_4" patternUnits="userSpaceOnUse" width="1" height="1" x="0" y="0">
       
-      <rect width="1" height="1" y="0.008" x="0.008" class="pattern"/>
+      <rect width="1" height="1" y="0.01" x="0.01" class="pattern"/>
       
 </pattern>
 
 </defs>
 
 <g id="layer_0">
-<rect id="frame" width="5" height="3" y="-0.008" x="-0.008" fill="url(#muster_4)"/>
+<rect id="frame" width="15" height="15" y="-0.01" x="-0.01" fill="url(#muster_4)"/>
 
 </g> 
 

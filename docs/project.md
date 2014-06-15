@@ -27,7 +27,7 @@ Step 3.1: Prepare a simple svg page with radial gradients and two colors.
 
 Step 4.1: Prepare a simple svg page with linear gradients and two colors.
 
-5. The background consists of radial patterns with two colors.
+5. The background is filled with a recangular pattern and one single color.
 
 6. The background consists of linear patterns with two colors.
 

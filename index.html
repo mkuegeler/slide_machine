@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Slide Machine</title>
@@ -19,78 +20,12 @@
     	
 <div class="jumbotron">
 	<h1>Slide Machine</h1>
+	<p>Examination of elastic SVG interfaces</p>
+	<p><a href="cookbook.html" class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
 </div>    	
         
-<hr/>
 
-<h2>Introduction</h2>
 
-<div>
-The intent of "slide machine" is to provide a simple and smart way to generate slides in various formats and layouts.
-A slide is just a two dimensional container of customizable components to meet specific requirements.
-The minimum viable product comprises just a background which is the core element of a slide. 
-This project examines the power of vector graphics in web browsers and is therefore focused on SVG.	
-</div>
-
-<h2>Requirements</h2>
-
-<div>
-	<ul class="list-group">
-		<li class="list-group-item"><p>1. A background is based on responsive design rules which means that the content of the background scales to the window respectively.</p>
-		<li class="list-group-item">1.1. A simple index page with a link to a sample svg file which points back to the index page.</li>
-		<li class="list-group-item">1.1.1. Example: <a href="samples/1.1.1.svg">1.1.1.svg</a></li>
-	</ul>	
-	<ul class="list-group">     
-	    <li class="list-group-item"><p>2. A background can be customized by changing the color.</p></li>
-	    <li class="list-group-item">2.1. See base color picker with square panels (4 only for now) in html.</li>
-		<li class="list-group-item">2.1.1. Example: <a href="samples/2.1.1.html">2.1.1.html</a></li>
-		<li class="list-group-item">2.2. Click on square with desired color to get a preview in full screen</li>
-		<li class="list-group-item">2.2.1. Example: <a href="samples/2.2.1.html">2.2.1.html</a></li>
-	
-	</ul>
-	<ul class="list-group">     
-	    <li class="list-group-item"><p>3. The background color can be changed to radial gradient with two colors.</p></li>
-	    <li class="list-group-item">3.1. A simple svg page with radial gradient and two colors.</li>
-		<li class="list-group-item">3.1.1. Example: <a href="samples/3.1.1.svg">3.1.1.svg</a></li>
-		<li class="list-group-item">
-			<code>preserveAspectRatio="none"</code>
-		</li>
-	</ul>
-	<ul class="list-group">     
-	    <li class="list-group-item"><p>4. The background color can be changed to linear gradient with two colors.</p></li>
-	    <li class="list-group-item">4.1. A simple svg page with linear gradient and two colors.</li>
-		<li class="list-group-item">4.1.1. Example: <a href="samples/4.1.1.svg">4.1.1.svg</a></li>
-		<li class="list-group-item">
-			<code>preserveAspectRatio="none"</code>
-			<code>patternUnits="userSpaceOnUse"</code>
-		</li>
-	</ul>
-	<ul class="list-group">     
-	    <li class="list-group-item"><p>5. The background is filled with a recangular pattern and one single color.</p></li>
-	    <li class="list-group-item">5.1. A simple svg page with a tiled pattern.</li>
-		<li class="list-group-item">5.1.1. Example: <a href="samples/5.1.1.svg">5.1.1.svg</a></li>
-		<li class="list-group-item">
-			<div>The responsive behavior of the background is controlled by these attributes:<br/><br/>
-			
-				In "svg": <code>preserveAspectRatio="none"</code><br/>
-				In "pattern": <code>patternUnits="userSpaceOnUse"</code><br/><br/>
-			    
-			    The vertical and horizontal tiling of the background is defined by changing these attributes:<br/><br/>
-				In "svg": <code>viewBox="0 0 5 3"</code><br/><br/>
-				
-				The attributes "width" and "height" of the "rect" element which contains the background need to be changed accordingly:<br/><br/>
-				In "rect": <code>width="5" height="3"</code><br/><br/>
-				
-				The gap between tiles of the pattern is defined by y and y in "rect" respectively:<br/><br/>
-				In "rect" nested in "pattern": <code>y="0.05" x="0.05"</code><br/> 
-				In "rect" which contains the background: <code>y="-0.05" x="-0.05"</code>
-				
-				
-			</div>
-			
-		</li>
-	</ul>
-</div>
 
     
         
@@ -108,7 +43,8 @@ This project examines the power of vector graphics in web browsers and is theref
 <!-- Latest compiled and minified JavaScript -->
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
-
+<!-- Javascript code prettifier -->
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,28 @@
+&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; style=&quot;background-color: #ff6600;&quot; preserveAspectRatio=&quot;xMidYMid meet&quot; viewBox=&quot;0 0 5 3&quot; 
+id=&quot;svg&quot; onclick=&quot;javascript:location.href='../'&quot;&gt;
+
+&lt;desc&gt;
+just a simple, scalable background. The only parameter here is the background color.
+
+&lt;/desc&gt;
+  
+
+&lt;style type=&quot;text/css&quot; &gt;
+&lt;![CDATA[
+
+
+/* custom styles */
+
+
+]]&gt;
+&lt;/style&gt;
+&lt;defs id=&quot;templates&quot;&gt;
+
+
+
+
+&lt;/defs&gt;
+
+
+
+&lt;/svg&gt;

@@ -1,28 +1,44 @@
-&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; style=&quot;background-color: #ff6600;&quot; preserveAspectRatio=&quot;xMidYMid meet&quot; viewBox=&quot;0 0 5 3&quot; 
+&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot;  preserveAspectRatio=&quot;none&quot; viewBox=&quot;0 0 15 15&quot; 
 id=&quot;svg&quot; onclick=&quot;javascript:location.href='../'&quot;&gt;
-
 &lt;desc&gt;
-just a simple, scalable background. The only parameter here is the background color.
-
+A simple svg page with tiled pattern
 &lt;/desc&gt;
-  
-
 &lt;style type=&quot;text/css&quot; &gt;
 &lt;![CDATA[
-
-
 /* custom styles */
-
-
+rect.pattern { stroke:none; fill:#ffcc33; }
 ]]&gt;
 &lt;/style&gt;
 &lt;defs id=&quot;templates&quot;&gt;
 
+&lt;radialGradient id=&quot;RadialGradient_A&quot; fx=&quot;50%&quot; fy=&quot;50%&quot; r=&quot;100%&quot; spreadMethod=&quot;pad&quot;&gt;
+         &lt;stop offset=&quot;0%&quot;   stop-color=&quot;#ff3300&quot; stop-opacity=&quot;1&quot;/&gt;
+         &lt;stop offset=&quot;100%&quot; stop-color=&quot;#ffcc33&quot; stop-opacity=&quot;1&quot; /&gt;
+&lt;/radialGradient&gt;
 
+&lt;linearGradient id=&quot;LinearGradient_A&quot;&gt;
+        &lt;stop offset=&quot;5%&quot; stop-color=&quot;#ff3300&quot; /&gt;
+        &lt;stop offset=&quot;95%&quot; stop-color=&quot;#ffcc33&quot; /&gt;
+&lt;/linearGradient&gt;
 
+&lt;pattern id=&quot;muster_1&quot; patternUnits=&quot;userSpaceOnUse&quot; width=&quot;0.25&quot; height=&quot;0.25&quot; x=&quot;0&quot; y=&quot;0&quot;&gt;
+        &lt;rect width=&quot;0.25&quot; height=&quot;0.25&quot; y=&quot;0.015&quot; x=&quot;0.015&quot; class=&quot;pattern&quot;/&gt;
+&lt;/pattern&gt;
+
+&lt;pattern id=&quot;muster_2&quot; patternUnits=&quot;userSpaceOnUse&quot; width=&quot;0.25&quot; height=&quot;0.25&quot; x=&quot;0&quot; y=&quot;0&quot;&gt;
+        &lt;rect width=&quot;0.25&quot; height=&quot;0.25&quot; y=&quot;0.010&quot; x=&quot;0.010&quot; class=&quot;pattern&quot;/&gt;
+&lt;/pattern&gt;
+
+&lt;pattern id=&quot;muster_3&quot; patternUnits=&quot;userSpaceOnUse&quot; width=&quot;0.25&quot; height=&quot;0.25&quot; x=&quot;0&quot; y=&quot;0&quot;&gt;
+        &lt;rect width=&quot;0.25&quot; height=&quot;0.25&quot; y=&quot;0.008&quot; x=&quot;0.008&quot; class=&quot;pattern&quot;/&gt;
+&lt;/pattern&gt;
+
+&lt;pattern id=&quot;muster_4&quot; patternUnits=&quot;userSpaceOnUse&quot; width=&quot;1&quot; height=&quot;1&quot; x=&quot;0&quot; y=&quot;0&quot;&gt;
+      &lt;rect width=&quot;1&quot; height=&quot;1&quot; y=&quot;0.01&quot; x=&quot;0.01&quot; class=&quot;pattern&quot;/&gt;
+&lt;/pattern&gt;
 
 &lt;/defs&gt;
-
-
-
+&lt;g id=&quot;layer_0&quot;&gt;
+&lt;rect id=&quot;frame&quot; width=&quot;15&quot; height=&quot;15&quot; y=&quot;-0.01&quot; x=&quot;-0.01&quot; fill=&quot;url(#muster_4)&quot;/&gt;
+&lt;/g&gt;
 &lt;/svg&gt;

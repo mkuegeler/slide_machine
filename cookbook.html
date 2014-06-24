@@ -91,6 +91,7 @@ just a simple, scalable background. The only parameter here is the background co
 &lt;/defs&gt;
 &lt;/svg&gt;
 </pre>
+<p>Attribute <i>preserveAspectRatio</i> indicates whether or not to force uniform scaling.</p>
 <!-- end of chapter 1 --> 	
 </div>      
 
@@ -100,13 +101,39 @@ just a simple, scalable background. The only parameter here is the background co
         <h2>Chapter 2</h2>
      </div>
 
-		<p>The background can be customized by changing the color</p>
+		<p>Changing the background-color of the embedded SVG element</p>
 		
 		<p>Example: <a href="samples/2.1.1.html">2.1.1.html</a></p>
 		<p>Example: <a href="samples/2.2.1.html">2.2.1.html</a></p>
+		<p>Example: <a href="samples/2.2.2.html">2.2.2.html</a></p>
+		
+<pre class="prettyprint">
+&lt;p&gt;
+  &lt;a role=&quot;button&quot; class=&quot;btn btn-default btn-lg-FF0000&quot; onclick=&quot;setColor('#FF0000')&quot; &gt;#FF0000&lt;/a&gt;
+  &lt;a role=&quot;button&quot; class=&quot;btn btn-default btn-lg-0000FF&quot; onclick=&quot;setColor('#0000FF')&quot; &gt;#0000FF&lt;/a&gt;
+  &lt;a role=&quot;button&quot; class=&quot;btn btn-default btn-lg-FF00FF&quot; onclick=&quot;setColor('#FF00FF')&quot; &gt;#FF00FF&lt;/a&gt;
+  &lt;a role=&quot;button&quot; class=&quot;btn btn-default btn-lg-00FFFF&quot; onclick=&quot;setColor('#00FFFF')&quot; &gt;#00FFFF&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;svg id=&quot;embedded_svg&quot; style=&quot;background-color: #ff0000;&quot; preserveAspectRatio=&quot;xMidYMid meet&quot; viewBox=&quot;0 0 5 3&quot;&gt;
+&lt;/svg&gt;	
+</pre>			
+<p>Html control elements and embedded svg in 2.2.2.html. Unidirective Interaction (HTML->SVG)</p>		
+<pre class="prettyprint">
+&lt;script type='text/javascript'&gt;
+//&lt;![CDATA[ 
+function setColor (c)
+{
+var svg = document.getElementById(&quot;embedded_svg&quot;); 
+svg.setAttributeNS(null, &quot;style&quot;, &quot;background-color:&quot;+c+&quot;;&quot;);
+}
+//]]&gt;  
+&lt;/script&gt;
+</pre>
+<p>Custom javascript in 2.2.2.html</p>
 
 <pre class="prettyprint">
-
+placeholder
 </pre>
 <!-- end of chapter 2 --> 	
 </div>      
@@ -116,16 +143,164 @@ just a simple, scalable background. The only parameter here is the background co
         <h2>Chapter 3</h2>
      </div>
 
-		<p>The background color can be changed to radial gradient with two colors</p>
+		<p>A radial gradient with two colors as background</p>
 		
 		<p>Example: <a href="samples/3.1.1.svg">3.1.1.svg</a></p>
 		
+		<p>See difference to previous files: "svg": <code>preserveAspectRatio="none"</code></p>
+		
+		
 
+<pre class="prettyprint">
+&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot;  preserveAspectRatio=&quot;none&quot; viewBox=&quot;0 0 5 3&quot; 
+id=&quot;svg&quot; onclick=&quot;javascript:location.href='../'&quot;&gt;
+&lt;desc&gt;
+A simple svg page with radial gradients and two colors
+&lt;/desc&gt;  
+&lt;style type=&quot;text/css&quot; &gt;
+&lt;![CDATA[
+/* custom styles */
+]]&gt;
+&lt;/style&gt;
+&lt;defs id=&quot;templates&quot;&gt;
+&lt;radialGradient id=&quot;RadialGradient_A&quot;
+           fx=&quot;50%&quot; fy=&quot;50%&quot; r=&quot;100%&quot;
+           spreadMethod=&quot;pad&quot;&gt;
+          &lt;stop offset=&quot;0%&quot;   stop-color=&quot;#ff3300&quot; stop-opacity=&quot;1&quot;/&gt;
+          &lt;stop offset=&quot;100%&quot; stop-color=&quot;#ffcc33&quot; stop-opacity=&quot;1&quot; /&gt;
+&lt;/radialGradient&gt;
+&lt;/defs&gt;
+&lt;g id=&quot;layer_0&quot;&gt;
+&lt;rect id=&quot;frame&quot; width=&quot;5&quot; height=&quot;3&quot; y=&quot;0&quot; x=&quot;0&quot; fill=&quot;url(#RadialGradient_A)&quot;/&gt;
+&lt;/g&gt; 
+&lt;/svg&gt;
+</pre>
+
+<p>Example: <a href="samples/3.1.1.html">3.1.1.html</a></p>
+<p>Using bootstrap-slider.js to customize radial gradiants of inline SVG</p>
 <pre class="prettyprint">
 
 </pre>
 <!-- end of chapter 2 --> 	
 </div>  
+
+<div id="chapter_4">   
+<div class="page-header">
+        <h2>Chapter 4</h2>
+     </div>
+
+		<p>A linear gradient with two colors as background</p>
+		
+		<p>Example: <a href="samples/4.1.1.svg">4.1.1.svg</a></p>
+		
+
+<pre class="prettyprint">
+&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot;  preserveAspectRatio=&quot;none&quot; viewBox=&quot;0 0 5 3&quot; 
+id=&quot;svg&quot; onclick=&quot;javascript:location.href='../'&quot;&gt;
+&lt;desc&gt;
+A simple svg page with linear gradients and two colors
+&lt;/desc&gt;
+&lt;style type=&quot;text/css&quot; &gt;
+&lt;![CDATA[
+/* custom styles */
+]]&gt;
+&lt;/style&gt;
+&lt;defs id=&quot;templates&quot;&gt;
+&lt;radialGradient id=&quot;RadialGradient_A&quot;
+           fx=&quot;50%&quot; fy=&quot;50%&quot; r=&quot;100%&quot;
+           spreadMethod=&quot;pad&quot;&gt;
+          &lt;stop offset=&quot;0%&quot;   stop-color=&quot;#ff3300&quot; stop-opacity=&quot;1&quot;/&gt;
+          &lt;stop offset=&quot;100%&quot; stop-color=&quot;#ffcc33&quot; stop-opacity=&quot;1&quot; /&gt;
+&lt;/radialGradient&gt;
+&lt;linearGradient id=&quot;LinearGradient_A&quot;&gt;
+        &lt;stop offset=&quot;5%&quot; stop-color=&quot;#ff3300&quot; /&gt;
+        &lt;stop offset=&quot;95%&quot; stop-color=&quot;#ffcc33&quot; /&gt;
+&lt;/linearGradient&gt;
+&lt;/defs&gt;
+&lt;g id=&quot;layer_0&quot;&gt;
+&lt;rect id=&quot;frame&quot; width=&quot;5&quot; height=&quot;3&quot; y=&quot;0&quot; x=&quot;0&quot; fill=&quot;url(#LinearGradient_A)&quot;/&gt;
+&lt;/g&gt; 
+&lt;/svg&gt;
+</pre>
+<!-- end of chapter 4 --> 
+	
+</div> 
+
+<div id="chapter_5">   
+<div class="page-header">
+        <h2>Chapter 5</h2>
+     </div>
+
+		<p>The background is filled with a rectangular pattern and one single color</p>
+		
+		<p>Example: <a href="samples/5.1.1.svg">5.1.1.svg</a></p>
+		
+
+<pre class="prettyprint">
+&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot;  preserveAspectRatio=&quot;none&quot; viewBox=&quot;0 0 15 15&quot; 
+id=&quot;svg&quot; onclick=&quot;javascript:location.href='../'&quot;&gt;
+&lt;desc&gt;
+A simple svg page with tiled pattern
+&lt;/desc&gt;
+&lt;style type=&quot;text/css&quot; &gt;
+&lt;![CDATA[
+/* custom styles */
+rect.pattern { stroke:none; fill:#ffcc33; }
+]]&gt;
+&lt;/style&gt;
+&lt;defs id=&quot;templates&quot;&gt;
+
+&lt;radialGradient id=&quot;RadialGradient_A&quot; fx=&quot;50%&quot; fy=&quot;50%&quot; r=&quot;100%&quot; spreadMethod=&quot;pad&quot;&gt;
+         &lt;stop offset=&quot;0%&quot;   stop-color=&quot;#ff3300&quot; stop-opacity=&quot;1&quot;/&gt;
+         &lt;stop offset=&quot;100%&quot; stop-color=&quot;#ffcc33&quot; stop-opacity=&quot;1&quot; /&gt;
+&lt;/radialGradient&gt;
+
+&lt;linearGradient id=&quot;LinearGradient_A&quot;&gt;
+        &lt;stop offset=&quot;5%&quot; stop-color=&quot;#ff3300&quot; /&gt;
+        &lt;stop offset=&quot;95%&quot; stop-color=&quot;#ffcc33&quot; /&gt;
+&lt;/linearGradient&gt;
+
+&lt;pattern id=&quot;muster_1&quot; patternUnits=&quot;userSpaceOnUse&quot; width=&quot;0.25&quot; height=&quot;0.25&quot; x=&quot;0&quot; y=&quot;0&quot;&gt;
+        &lt;rect width=&quot;0.25&quot; height=&quot;0.25&quot; y=&quot;0.015&quot; x=&quot;0.015&quot; class=&quot;pattern&quot;/&gt;
+&lt;/pattern&gt;
+
+&lt;pattern id=&quot;muster_2&quot; patternUnits=&quot;userSpaceOnUse&quot; width=&quot;0.25&quot; height=&quot;0.25&quot; x=&quot;0&quot; y=&quot;0&quot;&gt;
+        &lt;rect width=&quot;0.25&quot; height=&quot;0.25&quot; y=&quot;0.010&quot; x=&quot;0.010&quot; class=&quot;pattern&quot;/&gt;
+&lt;/pattern&gt;
+
+&lt;pattern id=&quot;muster_3&quot; patternUnits=&quot;userSpaceOnUse&quot; width=&quot;0.25&quot; height=&quot;0.25&quot; x=&quot;0&quot; y=&quot;0&quot;&gt;
+        &lt;rect width=&quot;0.25&quot; height=&quot;0.25&quot; y=&quot;0.008&quot; x=&quot;0.008&quot; class=&quot;pattern&quot;/&gt;
+&lt;/pattern&gt;
+
+&lt;pattern id=&quot;muster_4&quot; patternUnits=&quot;userSpaceOnUse&quot; width=&quot;1&quot; height=&quot;1&quot; x=&quot;0&quot; y=&quot;0&quot;&gt;
+      &lt;rect width=&quot;1&quot; height=&quot;1&quot; y=&quot;0.01&quot; x=&quot;0.01&quot; class=&quot;pattern&quot;/&gt;
+&lt;/pattern&gt;
+
+&lt;/defs&gt;
+&lt;g id=&quot;layer_0&quot;&gt;
+&lt;rect id=&quot;frame&quot; width=&quot;15&quot; height=&quot;15&quot; y=&quot;-0.01&quot; x=&quot;-0.01&quot; fill=&quot;url(#muster_4)&quot;/&gt;
+&lt;/g&gt;
+&lt;/svg&gt;
+</pre>
+<div>The responsive behavior of the background is controlled by these attributes:<br/><br/>
+			
+				In "svg": <code>preserveAspectRatio="none"</code><br/>
+				In "pattern": <code>patternUnits="userSpaceOnUse"</code><br/><br/>
+			    
+			    The vertical and horizontal tiling of the background is defined by changing these attributes:<br/><br/>
+				In "svg": <code>viewBox="0 0 5 3"</code><br/><br/>
+				
+				The attributes "width" and "height" of the "rect" element which contains the background need to be changed accordingly:<br/><br/>
+				In "rect": <code>width="5" height="3"</code><br/><br/>
+				
+				The gap between tiles of the pattern is defined by y and y in "rect" respectively:<br/><br/>
+				In "rect" nested in "pattern": <code>y="0.05" x="0.05"</code><br/> 
+				In "rect" which contains the background: <code>y="-0.05" x="-0.05"</code>
+				
+				
+			</div>
+<!-- end of chapter 5 --> 	
+</div> 
 
 
 

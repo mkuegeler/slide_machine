@@ -1,3 +1,190 @@
-      <html lang="en">
-	             <head>
-	  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+Remove this if you use the .htaccess -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>3.1.2</title>
+<meta name="description" content="">
+<meta name="author" content="Michael Kügeler">
+<meta name="viewport" content="width=device-width; initial-scale=1.0">
+<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<!-- Bootstrap -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.css">
+<!-- Optional theme -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+<link href="../styles/style.css" rel="stylesheet"/>
+<link href="../styles/slider.css" rel="stylesheet"/>
+<style>
+/* Slider 1 */
+#RC1 .slider-selection {
+background: #FF8282;
+}
+#RC1 .slider-handle {
+background: red;
+}
+#GC1 .slider-selection {
+background: #428041;
+}
+#GC1 .slider-handle {
+background: green;
+}
+#BC1 .slider-selection {
+background: #8283FF;
+}
+#BC1 .slider-handle {
+border-bottom-color: blue;
+}
+#R1, #G1, #B1 {
+width: 300px;
+}
+/* Slider 2 */
+#RC2 .slider-selection {
+background: #FF8282;
+}
+#RC2 .slider-handle {
+background: red;
+}
+#GC2 .slider-selection {
+background: #428041;
+}
+#GC2 .slider-handle {
+background: green;
+}
+#BC2 .slider-selection {
+background: #8283FF;
+}
+#BC2 .slider-handle {
+border-bottom-color: blue;
+}
+#R2, #G2, #B2 {
+width: 300px;
+}
+/* percentage slider 1 */
+#P1 {
+width: 300px;
+}
+/* percentage slider 2 */
+#P2 {
+width: 300px;
+}
+</style>
+</head>
+<body>
+<p><a href="../cookbook.html">Back to cookbook</a></p>
+<hr />
+<h3>Radiant color slider and preview</h3>
+<div class="hero-unit">
+<p>Select first color</p>
+<div class="well">
+<p>
+<b>R</b> <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="128" data-slider-id="RC1" id="R1" data-slider-tooltip="hide" data-slider-handle="square" >
+</p>
+<p>
+<b>G</b> <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="128" data-slider-id="GC1" id="G1" data-slider-tooltip="hide" data-slider-handle="round" >
+</p>
+<p>
+<b>B</b> <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="128" data-slider-id="BC1" id="B1" data-slider-tooltip="hide" data-slider-handle="triangle" >
+</p>
+</div>
+<p>Select second color</p>
+<div class="well">
+<p>
+<b>R</b> <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="128" data-slider-id="RC2" id="R2" data-slider-tooltip="hide" data-slider-handle="square" >
+</p>
+<p>
+<b>G</b> <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="128" data-slider-id="GC2" id="G2" data-slider-tooltip="hide" data-slider-handle="round" >
+</p>
+<p>
+<b>B</b> <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="128" data-slider-id="BC2" id="B2" data-slider-tooltip="hide" data-slider-handle="triangle" >
+</p>
+</div>
+<p>Offset of first color (0 - 100%)</p>
+<div class="well">
+<p>
+<b>Offset</b> <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50" data-slider-id="PC1" id="P1"  >
+</p>
+</div>
+<p>Offset of second color (0 - 100%)</p>
+<div class="well">
+<p>
+<b>Offset</b> <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50" data-slider-id="PC2" id="P2"  >
+</p>
+</div>
+</div>
+<hr />
+<svg id="embedded_svg" style="background-color: #ff0000;" preserveAspectRatio="none" viewBox="0 0 5 3">
+<defs id="templates">
+<radialGradient id="RadialGradient_A"
+fx="50%" fy="50%" r="100%"
+spreadMethod="pad">
+<stop id="A_1" offset="0%"   stop-color="#ff3300" stop-opacity="1"/>
+<stop id="A_2" offset="100%" stop-color="#ffcc33" stop-opacity="1" />
+</radialGradient>
+</defs>
+<g id="layer_0">
+<rect id="frame" width="5" height="3" y="0" x="0" fill="url(#RadialGradient_A)"/>
+</g>
+</svg>
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://code.jquery.com/jquery.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.js"></script>
+<script src="../js/bootstrap-slider.js"></script>
+<script src="../js/modernizr-latest.js"></script>
+<script type='text/javascript'>
+//<![CDATA[
+// Slider 1
+var RGBChange1 = function() {
+$('#A_1').attr("stop-color",'rgb('+r1.getValue()+','+g1.getValue()+','+b1.getValue()+')')
+};
+var r1 = $('#R1').slider()
+.on('slide', RGBChange1)
+.data('slider');
+var g1 = $('#G1').slider()
+.on('slide', RGBChange1)
+.data('slider');
+var b1 = $('#B1').slider()
+.on('slide', RGBChange1)
+.data('slider');
+// Slider 2
+var RGBChange2 = function() {
+$('#A_2').attr("stop-color",'rgb('+r2.getValue()+','+g2.getValue()+','+b2.getValue()+')')
+};
+var r2 = $('#R2').slider()
+.on('slide', RGBChange2)
+.data('slider');
+var g2 = $('#G2').slider()
+.on('slide', RGBChange2)
+.data('slider');
+var b2 = $('#B2').slider()
+.on('slide', RGBChange2)
+.data('slider');
+// Slider 3: offset of color 1
+var PerChange1 = function() {
+$('#A_1').attr("offset",p1.getValue()+'%')
+};
+var p1 = $('#P1').slider()
+.on('slide', PerChange1)
+.data('slider');
+// Slider 4: offset of color 2
+var PerChange2 = function() {
+$('#A_2').attr("offset",p2.getValue()+'%')
+};
+var p2 = $('#P2').slider()
+.on('slide', PerChange2)
+.data('slider');
+//]]>
+</script>
+</body>
+</html>

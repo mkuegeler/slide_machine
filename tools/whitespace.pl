@@ -34,10 +34,7 @@ if (not defined $outfile) {
   die "Outfile required\n";
 } 
 	 
-print convert_file($infile, $outfile);
-
-
-# match_characters();
+convert_file($infile, $outfile);
 
 }
 # end main
@@ -56,7 +53,13 @@ sub convert_file {
 	# input and out files
 	my ($filename, $new) = @_; 
 	 
-	my $text = read_file($filename) ;
+	my @data = read_file($filename) ;
+	
+	my $line;
+	
+	my $result = "";
+	
+	my @buffer;
 	
 	# $text =~ s/^\s+|\s+$//g;
 	
@@ -64,16 +67,22 @@ sub convert_file {
 	
 	# $text =~ s/^\s+|\s+$//g;
 	
-	$text =~ s/\s+//sg;
+	# $text =~ s/\s+//sg;
 	
 	
+	map {$line = $_; $line =~ s/^\s+|\s+$//g; push (@buffer, $line) } @data;
 	
+	foreach (@buffer) { $result = join ("\n", $result, $_ ); }
 	
+	# remove first blank line
+	$result =~  s/^(?:.*\n){0,1}//;
+	
+	# remove empty lines
+	$result =~ s/\n+/\n/g;
     
-	write_file ($new, $text);
-	
+	write_file ($new, $result);
     
-	return $text;
+	# return $result;
 	
 }
 

@@ -33,10 +33,6 @@ my $jsonfile = "params.json";
 
 my $params = read_json_file($jsonfile);
 
-# print $params->{stop_color1};
-
-# my $svg = sample_SVG_1();
-
 my $xml = sample_svg_2($params);
 
 

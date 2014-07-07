@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="background-image: url(background.svg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 5 3" id="svg"  >
+
+<desc>
+The preserveAspectRatio="xMidYMid meet" property means that the circle will expand to the maximum x and y sizes 
+so that the graphic doesn't overflow the box.
+</desc>
+  
+
+<style type="text/css" >
+<![CDATA[
+
+
+rect.frame { stroke:none; fill:url(#nodeRadialGradient_A) }
+circle.node_1 { stroke:none; fill:#ff8800; }
+circle.node_2 { stroke:none; fill:url(#nodeRadialGradient_B) }
+circle.node_3 { stroke:#000000; stroke-width:0.005; fill:#ffffff; }
+text.node_1 { fill: #ffcccc; stroke: none; font-size: 0.45pt; text-anchor: middle; }
+text.node_2 { fill: #000000; stroke: none; font-size: 0.45pt; text-anchor: middle; }
+text.node_3 { fill: #cc00ff; stroke: none; font-size: 0.45pt; text-anchor: middle; }
+
+
+rect.pattern_1 { stroke:none; fill:url(#nodeRadialGradient_B) }
+rect.pattern_2 { stroke:none; fill:#ff0000;opacity: 0.15; }
+
+line.grid  { stroke:#ffffff;  }
+
+
+
+]]>
+</style>
+<defs id="templates">
+
+<radialGradient id="nodeRadialGradient_A"
+           fx="1%" fy="1%" r="100%"
+           spreadMethod="pad">
+          <stop offset="0%"   stop-color="#ff3300" stop-opacity="1"/>
+          <stop offset="100%" stop-color="#ffcc33" stop-opacity="1" />
+</radialGradient>
+
+
+<radialGradient id="nodeRadialGradient_B"
+           fx="1%" fy="1%" r="100%"
+           spreadMethod="pad">
+          <stop offset="0%"   stop-color="#ff6600" stop-opacity="1"/>
+          <stop offset="100%" stop-color="#ffcc00" stop-opacity="1" />
+</radialGradient>
+
+<pattern id="muster_1" patternUnits="userSpaceOnUse" width="0.25" height="0.25" x="0" y="0">
+      <line x1="0.25" y1="0" x2="0.25" y2="0.0025" class="grid" />
+      <line x1="0" y1="0.25" x2="0.0025" y2="0.25" class="grid" />
+      <rect width="0.22" height="0.22" y="0.015" x="0.015" class="pattern_2"/>
+      
+</pattern>
+
+<pattern id="muster_2" patternUnits="userSpaceOnUse" width="0.25" height="0.25" x="0" y="0">
+      
+      <rect width="0.23" height="0.23" y="0.015" x="0.015" class="pattern_2"/>
+      
+</pattern>
+
+<filter id="dropShadow">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
+    <feOffset dx="1.0" dy="1.0" />
+    <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+    </feMerge>
+  </filter>
+
+<filter id="blurMe">
+    <feGaussianBlur in="SourceGraphic" stdDeviation="0.2" />
+  </filter>
+
+<symbol id="node">
+    <circle cx="0.51" cy="0.51" r="0.45" class="node_1"/>
+</symbol>
+     
+<symbol id="node_1">
+    <circle cx="0.50" cy="0.50" r="1" class="node_1"/>
+       
+    
+</symbol>
+
+
+<symbol id="node_animate">
+    <circle cx="0.51" cy="0.51" r="0.45" class="node_1">
+      <animate attributeType="XML"
+                 attributeName="cy"
+                 from="0.51" to="1.5"
+                 dur="10s"
+                 repeatCount="1"/>
+    
+    </circle>
+    
+</symbol>
+
+
+</defs>
+
+
+<g id="layer_1" style="visibility: visible" transform="translate(0,0) ">
+    <g transform="translate(0,0) scale(0.2)">
+        <use xlink:href="#node" />
+        <text x="0.52" y="0.68"  class="node_1" >1</text>
+    </g>  
+    
+    <g transform="translate(0.5,0) scale(0.2)">
+        <use xlink:href="#node" />
+        <text x="0.52" y="0.68"  class="node_1" >2</text>
+    </g> 
+    
+    <g transform="translate(1.0,0) scale(0.2)">
+        <use xlink:href="#node" />
+        <text x="0.52" y="0.68"  class="node_1" >3</text>
+    </g>
+    
+    <g transform="translate(1.5,0) scale(0.2)">
+        <use xlink:href="#node" />
+        <text x="0.52" y="0.68"  class="node_1" >4</text>
+    </g>
+    
+    <g transform="translate(2.0,0) scale(0.2)">
+        <use xlink:href="#node" />
+        <text x="0.52" y="0.68"  class="node_1" >5</text>
+    </g> 
+    
+    <g transform="translate(2.5,0) scale(0.2)">
+        <use xlink:href="#node" />
+        <text x="0.52" y="0.68"  class="node_1" >6</text>
+    </g>
+         
+</g>  
+
+
+
+
+
+</svg>

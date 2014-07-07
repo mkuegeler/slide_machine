@@ -134,15 +134,15 @@
             
           </div>
 
-<p>Offset of first color (0 - 100%)</p>
+<p>Grid Tiling</p>
           <div class="well">
             <p>
-            <b>Offset</b> <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50" data-slider-id="PC1" id="P1"  >
+            <b>Offset</b> <input type="text" class="span2" value="" data-slider-min="5" data-slider-max="50" data-slider-step="1" data-slider-value="15" data-slider-id="PC1" id="P1"  >
             </p>
            
           </div>
 
-<p>Offset of second color (0 - 100%)</p>
+<p>Vertical (0 - 100%)</p>
           <div class="well">
             <p>
             <b>Offset</b> <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50" data-slider-id="PC2" id="P2"  >
@@ -155,7 +155,7 @@
 
 
 <hr />
-<svg id="embedded_svg" style="background-color: #ff0000;" preserveAspectRatio="none" viewBox="0 0 15 15">
+<svg id="embedded_svg" style="background-color: #ff0000;" preserveAspectRatio="none" viewBox="0 0 25 25">
 <desc>
 A simple svg page with tiled pattern
 </desc>
@@ -174,23 +174,6 @@ rect.pattern { stroke:none; fill:#ffcc33; }
 <defs id="templates">
 
 
-<pattern id="muster_1" patternUnits="userSpaceOnUse" width="0.25" height="0.25" x="0" y="0">
-      
-      <rect width="0.25" height="0.25" y="0.015" x="0.015" class="pattern"/>
-      
-</pattern>
-
-<pattern id="muster_2" patternUnits="userSpaceOnUse" width="0.25" height="0.25" x="0" y="0">
-      
-      <rect width="0.25" height="0.25" y="0.010" x="0.010" class="pattern"/>
-      
-</pattern>
-
-<pattern id="muster_3" patternUnits="userSpaceOnUse" width="0.25" height="0.25" x="0" y="0">
-      
-      <rect width="0.25" height="0.25" y="0.008" x="0.008" class="pattern"/>
-      
-</pattern>
 
 <pattern id="muster_4" patternUnits="userSpaceOnUse" width="1" height="1" x="0" y="0">
       
@@ -201,7 +184,7 @@ rect.pattern { stroke:none; fill:#ffcc33; }
 </defs>
 
 <g id="layer_0">
-<rect id="frame" width="15" height="15" y="-0.01" x="-0.01" fill="url(#muster_4)"/>
+<rect id="frame" width="25" height="25" y="-0.01" x="-0.01" fill="url(#muster_4)"/>
 
 </g> 
 </svg>
@@ -260,7 +243,11 @@ var b2 = $('#B2').slider()
 
 // Slider 3: offset of color 1
 var PerChange1 = function() {
-	$('#A_1').attr("offset",p1.getValue()+'%')
+	$('#embedded_svg').attr("viewBox","0 0 "+p1.getValue()+" "+ p1.getValue());
+	
+	$('#frame').attr("width",p1.getValue());
+	
+	$('#frame').attr("height",p1.getValue());
 };
 
 var p1 = $('#P1').slider()
@@ -269,7 +256,7 @@ var p1 = $('#P1').slider()
 
 // Slider 4: offset of color 2
 var PerChange2 = function() {
-	$('#A_2').attr("offset",p2.getValue()+'%')
+	$('#frame').attr("height",p2.getValue())
 };
 
 var p2 = $('#P2').slider()

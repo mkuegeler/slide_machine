@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"   preserveAspectRatio="xMidYMid meet" viewBox="0 0 40 20" 
+id="svg" onclick="javascript:location.href='../'">
+
+<desc>
+Medigeist Matrix v1
+</desc>
+  
+
+<style type="text/css" >
+<![CDATA[
+
+
+/* custom styles */
+rect.pattern { stroke:none; fill:#ffcc33; }
+
+circle.node_1 { stroke:none; fill:#ff8800; }
+circle.node_2 { stroke:none; fill:url(#nodeRadialGradient_B) }
+circle.node_3 { stroke:#000000; stroke-width:0.005; fill:#ffffff; }
+text.node_1 { fill: #ffcccc; stroke: none; font-size: 0.45pt; text-anchor: middle; }
+text.node_2 { fill: #000000; stroke: none; font-size: 0.45pt; text-anchor: middle; }
+text.node_3 { fill: #cc00ff; stroke: none; font-size: 0.45pt; text-anchor: middle; }
+
+
+]]>
+</style>
+<defs id="templates">
+
+<symbol id="node">
+    <circle cx="0.51" cy="0.51" r="0.45" class="node_1"/>
+     
+    
+    
+</symbol>
+
+
+
+
+<radialGradient id="RadialGradient_A"
+           fx="50%" fy="50%" r="100%"
+           spreadMethod="pad">
+          <stop offset="0%"   stop-color="#ff3300" stop-opacity="1"/>
+          
+          <stop offset="100%" stop-color="#ffcc33" stop-opacity="1" />
+</radialGradient>
+
+<linearGradient id="LinearGradient_A">
+        <stop offset="5%" stop-color="#ff3300" />
+        <stop offset="95%" stop-color="#ffcc33" />
+</linearGradient>
+
+
+
+<pattern id="muster_4" patternUnits="userSpaceOnUse" width="1" height="1" x="0" y="0">
+      
+      <rect width="1" height="1" y="0.01" x="0.01" fill="#cccccc"/>
+      
+</pattern>
+
+</defs>
+
+<g id="layer_0">
+
+</g> 
+
+<g id="layer_1">
+<rect id="panel_1" width="18" height="10" y="0" x="2" fill="#e8e800" />
+
+<g transform="translate(2,0) scale(2)">
+        <use xlink:href="#node" />
+        <text x="0.52" y="0.68"  class="node_1" >1</text>
+</g> 
+
+
+
+
+</g>
+
+<g id="layer_2">
+<rect id="panel_1" width="18" height="10" y="0" x="20" fill="#cc00ff" />
+</g>
+
+<g id="layer_3">
+<rect id="panel_2" width="36" height="10" y="8" x="2" fill="#e8e8ff" />
+</g>
+
+<g id="layer_4">
+<rect id="panel_3" width="36" height="5" y="15" x="2" fill="#ffcccc" />
+</g>
+
+
+</svg>

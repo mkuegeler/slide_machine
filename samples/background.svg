@@ -1,8 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  preserveAspectRatio="none" viewBox="0 0 20 20" 
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  preserveAspectRatio="none" viewBox="0 0 5 3" 
 id="svg">
 
 <desc>
-Medigeist Matrix Background
+A simple svg page with radial gradients and two colors
+
 </desc>
   
 
@@ -11,17 +12,11 @@ Medigeist Matrix Background
 
 
 /* custom styles */
-rect.pattern { stroke:none; fill:#ffcc33; }
-
 
 
 ]]>
 </style>
 <defs id="templates">
-
-
-
-
 
 <radialGradient id="RadialGradient_A"
            fx="50%" fy="50%" r="100%"
@@ -31,40 +26,13 @@ rect.pattern { stroke:none; fill:#ffcc33; }
           <stop offset="100%" stop-color="#ffcc33" stop-opacity="1" />
 </radialGradient>
 
-<linearGradient id="LinearGradient_A">
-        <stop offset="5%" stop-color="#ff3300" />
-        <stop offset="95%" stop-color="#ffcc33" />
-</linearGradient>
-
-
-
-<pattern id="muster_1" patternUnits="userSpaceOnUse" width="1" height="1" x="0" y="0">
-      
-      <rect width="1" height="1" y="0.01" x="0.01" fill="#cccccc"/>
-      
-</pattern>
 
 </defs>
 
 <g id="layer_0">
-<rect id="frame" width="20" height="20" y="-0.01" x="-0.01" fill="url(#muster_1)" style="visibility:hidden"/>
+<rect id="frame" width="5" height="3" y="0" x="0" fill="url(#RadialGradient_A)"/>
+
 </g> 
-
-<g id="layer_1">
-<rect id="panel_1" width="10" height="8" y="0" x="0" fill="#e8e800" />
-</g>
-
-<g id="layer_2">
-<rect id="panel_1" width="10" height="8" y="0" x="10" fill="#cc00ff" />
-</g>
-
-<g id="layer_3">
-<rect id="panel_2" width="20" height="8" y="8" x="0" fill="#e8e8ff" />
-</g>
-
-<g id="layer_4">
-<rect id="panel_3" width="20" height="6" y="15" x="0" fill="#ffcccc" />
-</g>
 
 
 </svg>

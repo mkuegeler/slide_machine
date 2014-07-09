@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="background-image: url(background.svg);"  preserveAspectRatio="xMidYMid meet" viewBox="-1 -1 60 30" 
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="background-image: url(background.svg);"  preserveAspectRatio="xMidYMid meet" viewBox="-1 -1 60 40" 
 id="svg" onclick="javascript:location.href='../'">
 
 <desc>
@@ -16,7 +16,7 @@ rect.pattern { stroke:none; fill:#ffcc33; }
 circle.node_1 { stroke:none; fill:#000000; }
 circle.node_2 { stroke:none; fill:url(#nodeRadialGradient_B) }
 circle.node_3 { stroke:#000000; stroke-width:0.005; fill:#ffffff; }
-text.node_1 { fill: #ffffff; stroke: none; font-size: 0.45pt; text-anchor: middle; }
+text.node_1 { fill: #ffffff; stroke: none; font-size: 1pt; text-anchor: middle; }
 text.node_2 { fill: #000000; stroke: none; font-size: 0.45pt; text-anchor: middle; }
 text.node_3 { fill: #cc00ff; stroke: none; font-size: 0.45pt; text-anchor: middle; }
 
@@ -26,7 +26,7 @@ text.node_3 { fill: #cc00ff; stroke: none; font-size: 0.45pt; text-anchor: middl
 <defs id="templates">
 
 <symbol id="node">
-    <circle cx="0.51" cy="0.51" r="0.45" class="node_1"/>
+    <circle cx="1" cy="1" r="1" class="node_1"/>
      
     
     
@@ -63,49 +63,54 @@ text.node_3 { fill: #cc00ff; stroke: none; font-size: 0.45pt; text-anchor: middl
 </g> 
 
 <g id="layer_1">
-<rect id="panel_1" width="58" height="28" y="0" x="0" fill="#ffffff" />
+<rect id="canvas" width="58" height="38" y="0" x="0" rx="0.25"  ry="0.25" fill="#ffffff" stroke="#cccccc" stroke-width="0.5pt"/>
 
+<g id="matrix_1" transform="translate(15,10) scale(4)">
+<g id="row_1" transform="translate(0,0) scale(1)">
+<rect width="7" height="2.5" y="0" x="0"  rx="0.25"  ry="0.25"  fill="none" stroke="#0000ff" stroke-width="0.01pt"></rect>
 
-<g id="matrix_1" transform="translate(10,10) scale(2)">
-
-
-<rect id="row_1" width="6" height="2" y="0" x="0" fill="none" stroke="#0000ff" stroke-width="0.02pt"></rect>
-<g transform="translate(0,0) scale(2)">
+<g transform="translate(0.5,0.25)">
+<g transform="translate(-0.25,0) scale(1)">
         <use xlink:href="#node" />
-        <text x="0.52" y="0.68"  class="node_1" >1</text>
+        <text x="1" y="1.35"  class="node_1" >1</text>
 </g> 
 
-<g transform="translate(2,0) scale(2)" >
+<g transform="translate(2,0) scale(1)" >
         <use xlink:href="#node" />
-        <text x="0.52" y="0.68"  class="node_1" >2</text>
+        <text x="1" y="1.35"  class="node_1" >2</text>
 </g> 
 
-<g transform="translate(4,0) scale(2)" >
+<g transform="translate(4.25,0) scale(1)" >
         <use xlink:href="#node" />
-        <text x="0.52" y="0.68"  class="node_1" >3</text>
+        <text x="1" y="1.35"  class="node_1" >3</text>
 </g> 
-
-
-<rect id="row_1" width="6" height="2" y="2" x="0" fill="none" stroke="#0000ff" stroke-width="0.02pt"></rect>
-
-<g transform="translate(0,2) scale(2)" >
-        <use xlink:href="#node" />
-        <text x="0.52" y="0.68"  class="node_1" >4</text>
-</g> 
-
-<g transform="translate(2,2) scale(2)" >
-        <use xlink:href="#node" />
-        <text x="0.52" y="0.68"  class="node_1" >5</text>
-</g> 
-
-<g transform="translate(4,2) scale(2)" >
-        <use xlink:href="#node" />
-        <text x="0.52" y="0.68"  class="node_1" >5</text>
-</g> 
-
+</g>
 </g>
 
+<g id="row_2" transform="translate(0,2.6) scale(1)">
+<rect width="7" height="2.5" y="0" x="0"  rx="0.25"  ry="0.25" fill="none" stroke="#0000ff" stroke-width="0.01pt"></rect>
+
+<g transform="translate(0.5,0.25)">
+<g transform="translate(-0.25,0) scale(1)">
+        <use xlink:href="#node" />
+        <text x="1" y="1.35"  class="node_1" >4</text>
+</g> 
+
+<g transform="translate(2,0) scale(1)" >
+        <use xlink:href="#node" />
+        <text x="1" y="1.35"  class="node_1" >5</text>
+</g> 
+
+<g transform="translate(4.25,0) scale(1)" >
+        <use xlink:href="#node" />
+        <text x="1" y="1.35"  class="node_1" >6</text>
+</g> 
 </g>
+</g>
+
+</g><desc>End of Matrix 1</desc>
+
+</g><desc>End of Layer 1</desc>
 
 
 

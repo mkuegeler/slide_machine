@@ -1,8 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="background-image: url(background.svg);"  preserveAspectRatio="xMidYMid meet" viewBox="-1 -1 60 40" 
-id="svg" onclick="javascript:location.href='../'">
+id="svg">
+
+<script type="text/ecmascript" xlink:href="https://code.jquery.com/jquery.js"></script>
+
 
 <desc>
-Medigeist Matrix v1
+Medigeist Matrix v3
 </desc>
   
 
@@ -11,6 +14,11 @@ Medigeist Matrix v1
 
 
 /* custom styles */
+
+rect.canvas_1 { stroke-width:1pt; stroke:#cccccc; fill:#ffccff }
+rect.canvas_2 { fill:url(#muster_1) }
+rect.canvas_3 { stroke-width:0.4pt; stroke:#ffffff; fill:url(#backgroundRadialGradient_A) }
+
 rect.pattern { stroke:none; fill:#ffcc33; }
 
 circle.node_1 { stroke:none; fill:#000000; }
@@ -21,8 +29,9 @@ text.node_2 { fill: #000000; stroke: none; font-size: 0.45pt; text-anchor: middl
 text.node_3 { fill: #cc00ff; stroke: none; font-size: 0.45pt; text-anchor: middle; }
 
 rect.col_1 { stroke-width:0.01pt; stroke:#0000ff; fill:none }
-rect.col_2 { stroke:none; fill:url(#LinearGradient_A) }
-
+rect.col_2 { stroke:none; fill:url(#LinearGradient_A) } 
+rect.row_1 { stroke:none; fill:url(#LinearGradient_B) }
+rect.col_2a { visibility: hidden } 
 
 ]]>
 </style>
@@ -46,12 +55,6 @@ rect.col_2 { stroke:none; fill:url(#LinearGradient_A) }
           <stop offset="100%" stop-color="#ffcc33" stop-opacity="1" />
 </radialGradient>
 
-<linearGradient id="LinearGradient_A">
-        <stop offset="5%" stop-color="#003300" />
-        <stop offset="95%" stop-color="#00cc33" />
-</linearGradient>
-
-
 <radialGradient id="nodeRadialGradient_B"
            fx="1%" fy="1%" r="100%"
            spreadMethod="pad">
@@ -60,21 +63,49 @@ rect.col_2 { stroke:none; fill:url(#LinearGradient_A) }
 </radialGradient>
 
 
+<radialGradient id="backgroundRadialGradient_A"
+           fx="50%" fy="50%" r="100%"
+           spreadMethod="pad">
+          <stop offset="10%"   stop-color="#cc99ff" stop-opacity="1"/>
+          <stop offset="70%" stop-color="#ffffff" stop-opacity="1" />
+</radialGradient>
 
-<pattern id="muster_4" patternUnits="userSpaceOnUse" width="1" height="1" x="0" y="0">
-      
-      <rect width="1" height="1" y="0.01" x="0.01" fill="#cccccc"/>
-      
+<radialGradient id="backgroundRadialGradient_B"
+           fx="50%" fy="50%" r="100%"
+           spreadMethod="pad">
+          <stop offset="10%"   stop-color="#ccccff" stop-opacity="1"/>
+          <stop offset="100%" stop-color="#f0ffff" stop-opacity="1" />
+</radialGradient>
+
+<linearGradient id="LinearGradient_A">
+        <stop offset="5%" stop-color="#003300" stop-opacity="0.3" />
+        <stop offset="95%" stop-color="#00cc33" stop-opacity="0.5" />
+</linearGradient>
+
+<linearGradient id="LinearGradient_B">
+        <stop offset="5%" stop-color="#0033f0" stop-opacity="0.5" />
+        <stop offset="95%"  stop-color="#00cc3f" stop-opacity="0.5" />
+</linearGradient>
+
+
+
+
+
+
+<pattern id="muster_1" patternUnits="userSpaceOnUse" width="2" height="2" x="0.1" y="0">
+      <circle cx="1" cy="1" r="0.9" fill="#ffffff"/>
+      <circle cx="1" cy="1" r="0.8"  fill="url(#backgroundRadialGradient_B)"/>
+      <circle cx="0.8" cy="0.8" r="0.5" fill="#ffffff"/>
 </pattern>
 
 </defs>
 
 <g id="layer_0">
-
+<rect id="canvas_1" width="58" height="38" y="0" x="0" rx="0.25"  ry="0.25" class="canvas_3"/>
 </g> 
 
 <g id="layer_1">
-<rect id="canvas" width="58" height="38" y="0" x="0" rx="0.25"  ry="0.25" fill="#ffffff" stroke="#cccccc" stroke-width="0.5pt"/>
+
 
 <g id="matrix_1" transform="translate(15,10) scale(4)">
 
@@ -83,15 +114,15 @@ rect.col_2 { stroke:none; fill:url(#LinearGradient_A) }
 </g>
 
 <g transform="translate(4.60,-0.25) rotate(90)">
-<rect id="colbox_2" width="5.5" height="2.20" y="0" x="0"  rx="0.25"  ry="0.25"  fill="none" stroke="#0000ff" stroke-width="0.01pt"></rect>
+<rect id="colbox_2" width="5.5" height="2.20" y="0" x="0"  rx="0.25"  ry="0.25" class="col_2" ></rect>
 </g>
 
 <g transform="translate(6.85,-0.25) rotate(90)">
-<rect id="colbox_3" width="5.5" height="2.20" y="0" x="0"  rx="0.25"  ry="0.25"  fill="none" stroke="#0000ff" stroke-width="0.01pt"></rect>
+<rect id="colbox_3" width="5.5" height="2.20" y="0" x="0"  rx="0.25"  ry="0.25" class="col_2" ></rect>
 </g>
 
-<g id="row_1" transform="translate(0,0.005) scale(1)">
-<rect id="rowbox_1" width="7" height="2.5" y="0" x="0"  rx="0.25"  ry="0.25"  fill="none" stroke="#0000ff" stroke-width="0.01pt"></rect>
+<g id="row_1" transform="translate(0,0.005) scale(1)" >
+<rect id="rowbox_1" width="7" height="2.5" y="0" x="0"  rx="0.25"  ry="0.25" class="row_1" onclick="alert('test')"></rect>
 
 <g transform="translate(0.5,0.25)">
 
@@ -114,7 +145,7 @@ rect.col_2 { stroke:none; fill:url(#LinearGradient_A) }
 </g><desc>End of Row 1</desc>
 
 <g id="row_2" transform="translate(0,2.55) scale(1)">
-<rect id="rowbox_2" width="7" height="2.5" y="0" x="0"  rx="0.25"  ry="0.25" fill="none" stroke="#0000ff" stroke-width="0.01pt"></rect>
+<rect id="rowbox_2" width="7" height="2.5" y="0" x="0"  rx="0.25"  ry="0.25" class="row_1"></rect>
 
 <g transform="translate(0.5,0.25)">
 <g transform="translate(-0.25,0) scale(1)">

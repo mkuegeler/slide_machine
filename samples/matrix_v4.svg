@@ -1,10 +1,34 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="background-image: url(background.svg);"  preserveAspectRatio="xMidYMid meet" viewBox="-1 -1 60 40" 
-id="svg">
+id="svg" onload="init(evt)">
+
+<script type="text/ecmascript" xlink:href="matrix.js"/>
 
 
+
+<script>
+
+function init (evt) {
+
+// add reusable elements to defs node
+
+new Matrix().simpleCircleSymbol({id:"node", r: 1, cx:1, cy:1, class: "node_2"});
+//new Matrix().use({parent: "el_1", href: "node", transform: "translate(0,0)"}); 
+
+var params = {parent: "el_1",id:"id_1", r: 1, cx:1, cy:1, class: "node_2"};
+new Matrix().addCircle(params);
+
+// new Matrix().simpleRectSymbol({id: "rect_1",width: 10,height: 20,x:0,y:0,rx:0.1,ry:0.1,style:"col_1"});
+// new Matrix().use({parent: "layer_0", href: "rect_1", transform: "translate(0,0)"}); 
+
+}
+
+
+
+
+</script>
 
 <desc>
-Medigeist Matrix v3
+Medigeist Matrix v4: including js dom library matrix.js
 </desc>
   
 
@@ -36,7 +60,7 @@ rect.col_2a { visibility: hidden }
 </style>
 <defs id="templates">
 
-<symbol id="node">
+<symbol id="nodex">
     <circle cx="1" cy="1" r="1" class="node_2"/>
      
     
@@ -125,8 +149,8 @@ rect.col_2a { visibility: hidden }
 
 <g transform="translate(0.5,0.25)">
 
-<g transform="translate(-0.25,0) scale(1)">
-        <use xlink:href="#node" />
+<g id ="el_1" transform="translate(-0.25,0) scale(1)">
+        
         <text x="1" y="1.35"  class="node_1" >1</text>
 </g> 
 

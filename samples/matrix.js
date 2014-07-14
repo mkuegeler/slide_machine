@@ -22,9 +22,9 @@ function Matrix ()
 	// the parent node of the Matrix. If not defined than defs element
 	this.layer = document.getElementsByTagName("defs").item(0).id;
 	
-	
-	
-	
+	this.paramsofcircle = {parent: 'svg',id:'id',r: 1, cx:1, cy:1, style: 'stroke:#ff0000; stroke-width:0.15; fill:#00ffff;'};
+	this.paramsofrect =   {parent: 'svg',id:'id',width: 10,height: 20,x:0,y:0,rx:0.1,ry:0.1,style: 'stroke:#ff0000; stroke-width:0.15; fill:#00ffff;'};
+	this.paramsoftext =   {parent: 'svg',id:'id',x:10,y:10, style: 'font-family:Verdana; font-size:5; fill:#0000ff', data:'Matrix'};
 	
 }
 ///////////////////////////////////////////////////////////////////////////////
@@ -76,10 +76,69 @@ Matrix.prototype.getLayer = function()
 ///////////////////////////////////////////////////////////////////////////////
 // SUPPORT functions
 ///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+
+// set default params
+///////////////////////////////////////////////////////////////////////////////
+
+Matrix.prototype.setParamsofcircle = function(value)
+{
+            this.paramsofcircle = value;
+}
+Matrix.prototype.getParamsofcircle = function()
+{
+            return this.paramsofcircle;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+Matrix.prototype.setParamsofrect = function(value)
+{
+            this.paramsofrect = value;
+}
+Matrix.prototype.getParamsofrect = function()
+{
+            return this.paramsofrect;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+Matrix.prototype.setParamsoftext = function(value)
+{
+            this.paramsoftext = value;
+}
+Matrix.prototype.getParamsoftext = function()
+{
+            return this.paramsoftext;
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+// Event helper
+///////////////////////////////////////////////////////////////////////////////
+
+Matrix.prototype.setEvent = function(params)
+{
+      
+      var el = document.getElementById(params.id);	
+      var style = "font-family:Verdana; font-size:5; fill:#ff00cc";
+      var type = el.tagName;
+      
+      // el.setAttribute('style', style);
+      
+      el.setAttribute('y', 15);   
+      
+      // debug only
+      console.log(type);  
+}
+
+
+
+///////////////////////////////////////////////////////////////////////////////
 // Create a "Use" element
 ///////////////////////////////////////////////////////////////////////////////
 
-Matrix.prototype.use = function(params)
+Matrix.prototype.Use = function(params)
 {
 	
 	var use = document.getElementById(params.href);	
@@ -101,63 +160,51 @@ Matrix.prototype.use = function(params)
 // add your custom functions here
 ///////////////////////////////////////////////////////////////////////////////
 // 1. a simple circle  
-Matrix.prototype.addCircle = function(params)
+Matrix.prototype.Circle = function(params)
 {
- 	// var params = {parent: "layer",id:"id", r: 1, cx:1, cy:1, class: "class"};
  	
-    var circle = document.createElementNS(this.getNS(),"circle");
+ 	// var params1 = {parent: 'el_1',id:'id_1', r: 1, cx:1, cy:1, style: 'stroke:#ff0000; stroke-width:0.15; fill:#00ffff;'};
+    // var params2 = {id:'id_1', r: 1, cx:1, cy:1, class: 'node_2'};
 
+    var circle = document.createElementNS(this.getNS(),"circle");
+  
         circle.setAttribute("cx",params.cx); 
         circle.setAttribute("cy",params.cy);                
         circle.setAttribute("r",params.r);
-        // circle.setAttribute("style",style);		
-	    circle.setAttribute("class",params.class);	
-	    // circle.setAttribute("onmouseover","alert('test')")
-	    
-	    this.setLayer(params.parent);
-	    			
-        document.getElementById(this.getLayer()).appendChild(circle);
-     
-} 
-// 2. a simple circle symbol 
-Matrix.prototype.simpleCircleSymbol = function(params)
-{
-    // var params = {id:"id", r: 1, cx:1, cy:1, class: "class"};
-    
-	var symbol = document.createElementNS(this.getNS(),"symbol"); 
-	    symbol.setAttribute("id",params.id);	
-	
-
-	var group = document.createElementNS(this.getNS(),"g");
-	
-    var circle = document.createElementNS(this.getNS(),"circle");
-
-        circle.setAttribute("cx",params.cx); 
-        circle.setAttribute("cy",params.cy);                
-        circle.setAttribute("r",params.r);
-        // circle.setAttribute("style",style);		
-	    circle.setAttribute("class",params.class);	
+        // circle.setAttribute("style",style);
 		
-	    group.appendChild(circle);	
-	    symbol.appendChild(group);
-	    			
-        document.getElementById(this.getLayer()).appendChild(symbol);
+		// either style or class is required
+		if (params.class) {
+			circle.setAttribute("class",params.class);
+		} else {circle.setAttribute("style",params.style);}
+	    	
+	        
+	       var json = JSON.stringify(params);
+        circle.setAttribute("onclick","new Matrix().setEvent("+json+")"); 
+	    
+		
+	    if (params.parent) {
+		    circle.setAttribute("id",params.id); 
+			this.setLayer(params.parent);
+			document.getElementById(this.getLayer()).appendChild(circle);
+	    } else {  var symbol = document.createElementNS(this.getNS(),"symbol"); 
+		              symbol.setAttribute("id",params.id);  
+					  symbol.appendChild(circle);
+					  document.getElementById(this.getLayer()).appendChild(symbol);
+				  }
      
 } 
 
 ///////////////////////////////////////////////////////////////////////////////
-// 2. a simple rectangle
-Matrix.prototype.simpleRectSymbol = function(params)
+// 1. a simple rectangle  
+Matrix.prototype.Rect = function(params)
 {
-    
  	
-	var symbol = document.createElementNS(this.getNS(),"symbol"); 
-	    symbol.setAttribute("id",params.id);
-
-	var group = document.createElementNS(this.getNS(),"g");
-	
+ 	// var params3 = {parent: 'layer_0',id: 'rect_1',width: 10,height: 20,x:0,y:0,rx:0.1,ry:0.1,class:'col_1'};
+    // var params4 = {id: 'rect_1',width: 10,height: 20,x:0,y:0,rx:0.1,ry:0.1,style: 'stroke:#ff0000; stroke-width:0.15; fill:#00ffff;'};
+   
     var rect = document.createElementNS(this.getNS(),"rect");
-
+  
         rect.setAttribute("x",params.x);
         rect.setAttribute("y",params.y);
 
@@ -167,13 +214,55 @@ Matrix.prototype.simpleRectSymbol = function(params)
         rect.setAttribute("rx",params.rx);
 		rect.setAttribute("ry",params.ry);
 		
-	    rect.setAttribute("class",params.style);	
-	    group.appendChild(rect);	
-	
-	    symbol.appendChild(group);
-	    			
-        document.getElementById(this.getLayer()).appendChild(symbol);
+		// either style or class is required
+		if (params.class) {
+			rect.setAttribute("class",params.class);
+		} else {rect.setAttribute("style",params.style);}
+		
+	    if (params.parent) {
+		    rect.setAttribute("id",params.id); 
+			this.setLayer(params.parent);
+			document.getElementById(this.getLayer()).appendChild(rect);
+	    } else {  var symbol = document.createElementNS(this.getNS(),"symbol"); 
+		              symbol.setAttribute("id",params.id);  
+					  symbol.appendChild(rect);
+					  document.getElementById(this.getLayer()).appendChild(symbol);
+				  }
      
+} 
+
+///////////////////////////////////////////////////////////////////////////////
+
+Matrix.prototype.Text = function(params)
+{
+	
+	var text = document.createElementNS(this.getNS(),"text");
+	var textnode = document.createTextNode(params.data);
+	
+	    text.setAttribute("x",params.x);
+        text.setAttribute("y",params.y);
+        
+        // either style or class is required
+		if (params.class) {
+			text.setAttribute("class",params.class);
+		} else {text.setAttribute("style",params.style);}
+        
+        text.appendChild(textnode);
+        
+        var json = JSON.stringify(params);
+        text.setAttribute("onclick","new Matrix().setEvent("+json+")");
+	    
+        
+        if (params.parent) {
+		    text.setAttribute("id",params.id); 
+			this.setLayer(params.parent);
+			document.getElementById(this.getLayer()).appendChild(text);
+	    } else {  var symbol = document.createElementNS(this.getNS(),"symbol"); 
+		              symbol.setAttribute("id",params.id);  
+					  symbol.appendChild(text);
+					  document.getElementById(this.getLayer()).appendChild(symbol);
+				  }
+		
 }
 
 
@@ -188,14 +277,14 @@ Matrix.prototype.simpleRectSymbol = function(params)
 Matrix.prototype.init = function()
 {
 	
-var Matrix = new Matrix();
+var matrix = new Matrix();
 
-// exampple:
-// initialize the object
-// Matrix.simpleCircleSymbol("symbol_1");
+// Example Usage in SVG script tag:
+// var params3 = {parent: 'layer_0',id: 'rect_1',width: 10,height: 20,x:0,y:0,rx:0.1,ry:0.1,class:'col_1'};
+// var params4 = {id: 'rect_1',width: 10,height: 20,x:0,y:0,rx:0.1,ry:0.1,style: 'stroke:#ff0000; stroke-width:0.15; fill:#00ffff;'};
+// matrix.Rect(params4);
 
-// use object in svg file:
-// new Matrix().use("symbol_1","translate(0,0)"); 
+// matrix.Use({parent: "layer_0", href: "rect_1", transform: "translate(0,0)"}); 
 
 
 }

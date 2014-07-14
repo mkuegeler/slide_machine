@@ -11,14 +11,27 @@ function init (evt) {
 
 // add reusable elements to defs node
 
-new Matrix().simpleCircleSymbol({id:"node", r: 1, cx:1, cy:1, class: "node_2"});
-//new Matrix().use({parent: "el_1", href: "node", transform: "translate(0,0)"}); 
+var matrix = new Matrix();
 
-var params = {parent: "el_1",id:"id_1", r: 1, cx:1, cy:1, class: "node_2"};
-new Matrix().addCircle(params);
+var params1 = {parent: 'el_1',id:'id_1', r: 1, cx:1, cy:1, style: 'stroke:#ff0000; stroke-width:0.15; fill:#00ffff;'};
+var params2 = {id:'id_1', r: 1, cx:1, cy:1, class: 'node_2'};
+
+matrix.Circle(params1);
+// matrix.Use({parent: "el_1", href: "id_1", transform: "translate(0,0)"}); 
+
+var params3 = {parent: 'layer_0',id: 'rect_1',width: 10,height: 20,x:0,y:0,rx:0.1,ry:0.1,class:'col_1'};
+var params4 = {id: 'rect_1',width: 10,height: 20,x:0,y:0,rx:0.1,ry:0.1,style: 'stroke:#ff0000; stroke-width:0.15; fill:#00ffff;'};
+matrix.Rect(params4);
 
 // new Matrix().simpleRectSymbol({id: "rect_1",width: 10,height: 20,x:0,y:0,rx:0.1,ry:0.1,style:"col_1"});
-// new Matrix().use({parent: "layer_0", href: "rect_1", transform: "translate(0,0)"}); 
+// matrix.Use({parent: "layer_0", href: "rect_1", transform: "translate(0,0)"}); 
+
+
+var params5 = {id: 'text_1', x:10,y:10, style: 'font-family:Verdana; font-size:5; fill:#0000ff', data:'Matrix'};
+var params6 = {parent: 'layer_0',id: 'text_1', x:10,y:10, style: 'font-family:Verdana; font-size:5; fill:#0000ff', data:'Matrix'};
+matrix.Text(params6);
+// matrix.Use({parent: "layer_0", href: "text_1", transform: "translate(0,0)"}); 
+
 
 }
 

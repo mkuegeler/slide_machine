@@ -22,9 +22,12 @@ function Matrix ()
 	// the parent node of the Matrix. If not defined than defs element
 	this.layer = document.getElementsByTagName("defs").item(0).id;
 	
-	this.paramsofcircle = {parent: 'svg',id:'id',r: 1, cx:1, cy:1, style: 'stroke:#ff0000; stroke-width:0.15; fill:#00ffff;'};
-	this.paramsofrect =   {parent: 'svg',id:'id',width: 10,height: 20,x:0,y:0,rx:0.1,ry:0.1,style: 'stroke:#ff0000; stroke-width:0.15; fill:#00ffff;'};
-	this.paramsoftext =   {parent: 'svg',id:'id',x:10,y:10, style: 'font-family:Verdana; font-size:5; fill:#0000ff', data:'Matrix'};
+	// default parameters for each element
+	this.circle = {r: 1, cx:1, cy:1};
+	this.rect =   {width: 10,height: 20,x:0,y:0,rx:0.1,ry:0.1};
+	this.text =   {x:10,y:10};
+	
+	this.value = "void";
 	
 }
 ///////////////////////////////////////////////////////////////////////////////
@@ -78,38 +81,64 @@ Matrix.prototype.getLayer = function()
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-// set default params
+// set and get default params
 ///////////////////////////////////////////////////////////////////////////////
 
-Matrix.prototype.setParamsofcircle = function(value)
+Matrix.prototype.setParams = function(params)
 {
-            this.paramsofcircle = value;
+            
+            
+     switch (params.type) {
+		
+	       case "circle": this.circle = params;
+	       break;
+	   
+	       case "rect": this.rect = params;
+	       break;
+	   
+	       case "text": this.text = params;
+	       break;
+	   
+   }       
+            
 }
-Matrix.prototype.getParamsofcircle = function()
+Matrix.prototype.getParams = function(type)
 {
-            return this.paramsofcircle;
+           switch (type) {
+		
+	       case "circle": return this.circle;
+	       break;
+	   
+	       case "rect": return this.rect;
+	       break;
+	   
+	       case "text": return this.text;
+	       break;
+	   
+   }        
 }
 
-///////////////////////////////////////////////////////////////////////////////
+Matrix.prototype.showParams = function(params)
+{
+    
+       Object.keys(params).forEach(function(key) {
+        console.log(key + ' => ' + params[key]);
+       }); 
 
-Matrix.prototype.setParamsofrect = function(value)
-{
-            this.paramsofrect = value;
-}
-Matrix.prototype.getParamsofrect = function()
-{
-            return this.paramsofrect;
 }
 
-///////////////////////////////////////////////////////////////////////////////
 
-Matrix.prototype.setParamsoftext = function(value)
+Matrix.prototype.setValue = function(key,value, params)
 {
-            this.paramsoftext = value;
+         
+            if (params[key]) { this.value = params[key]; }
+            else {this.value = value; }
+
 }
-Matrix.prototype.getParamsoftext = function()
+
+Matrix.prototype.getValue = function()
 {
-            return this.paramsoftext;
+            return this.value;
 }
 
 
@@ -120,16 +149,29 @@ Matrix.prototype.getParamsoftext = function()
 Matrix.prototype.setEvent = function(params)
 {
       
-      var el = document.getElementById(params.id);	
-      var style = "font-family:Verdana; font-size:5; fill:#ff00cc";
-      var type = el.tagName;
+      var el = document.getElementById(params.id);
       
-      // el.setAttribute('style', style);
-      
-      el.setAttribute('y', 15);   
-      
+      switch (el.tagName) {
+		
+	       case "circle": 
+		  
+		   alert('A circle'); 
+	       break;
+	   
+	       case "rect": 
+		    
+	       alert('A rectangle'); 
+	       break;
+	   
+	       case "text":
+
+	       alert('A text'); 
+	       break;
+	   
+      }
+  
       // debug only
-      console.log(type);  
+      // console.log(type);  
 }
 
 
@@ -159,44 +201,90 @@ Matrix.prototype.Use = function(params)
 // MAIN: Start
 // add your custom functions here
 ///////////////////////////////////////////////////////////////////////////////
-// 1. a simple circle  
-Matrix.prototype.Circle = function(params)
+// 1. a generic Element
+
+Matrix.prototype.Element = function(params)
 {
  	
- 	// var params1 = {parent: 'el_1',id:'id_1', r: 1, cx:1, cy:1, style: 'stroke:#ff0000; stroke-width:0.15; fill:#00ffff;'};
-    // var params2 = {id:'id_1', r: 1, cx:1, cy:1, class: 'node_2'};
+ 	// var params = {type:'circle', parent: 'el_1',id:'id_1', r: 1, cx:1, cy:1, style: 'stroke:#ff0000; stroke-width:0.15; fill:#00ffff;'};
+ 	
+    var defaults = this.getParams(params.type);
 
-    var circle = document.createElementNS(this.getNS(),"circle");
-  
-        circle.setAttribute("cx",params.cx); 
-        circle.setAttribute("cy",params.cy);                
-        circle.setAttribute("r",params.r);
-        // circle.setAttribute("style",style);
-		
+    var obj = document.createElementNS(this.getNS(),params.type);
+    
+    if (params.type == 'text') {
+    	var data;
+    	if (params.data) {data = params.data; } else {data = "text"; }
+    	     obj.appendChild(document.createTextNode(data));
+    }
+    
+    
+    for (key in defaults) {
+    	this.setValue(key, defaults[key], params);
+        obj.setAttribute(key, this.getValue() );
+    }; 
+    
 		// either style or class is required
 		if (params.class) {
-			circle.setAttribute("class",params.class);
-		} else {circle.setAttribute("style",params.style);}
+			obj.setAttribute("class",params.class);
+		} else {obj.setAttribute("style",params.style);}
 	    	
 	        
 	       var json = JSON.stringify(params);
-        circle.setAttribute("onclick","new Matrix().setEvent("+json+")"); 
+        obj.setAttribute("onclick","new Matrix().setEvent("+json+")"); 
 	    
 		
 	    if (params.parent) {
-		    circle.setAttribute("id",params.id); 
+		    obj.setAttribute("id",params.id); 
 			this.setLayer(params.parent);
-			document.getElementById(this.getLayer()).appendChild(circle);
+			document.getElementById(this.getLayer()).appendChild(obj);
 	    } else {  var symbol = document.createElementNS(this.getNS(),"symbol"); 
 		              symbol.setAttribute("id",params.id);  
-					  symbol.appendChild(circle);
+					  symbol.appendChild(obj);
 					  document.getElementById(this.getLayer()).appendChild(symbol);
 				  }
      
 } 
 
 ///////////////////////////////////////////////////////////////////////////////
-// 1. a simple rectangle  
+// 2. a simple circle  
+Matrix.prototype.Circle = function(params)
+{
+ 	
+ 	// var params1 = {parent: 'el_1',id:'id_1', r: 1, cx:1, cy:1, style: 'stroke:#ff0000; stroke-width:0.15; fill:#00ffff;'};
+    // var params2 = {id:'id_1', r: 1, cx:1, cy:1, class: 'node_2'};
+
+    var obj = document.createElementNS(this.getNS(),"circle");
+  
+        obj.setAttribute("cx",params.cx); 
+        obj.setAttribute("cy",params.cy);                
+        obj.setAttribute("r",params.r);
+        // circle.setAttribute("style",style);
+		
+		// either style or class is required
+		if (params.class) {
+			obj.setAttribute("class",params.class);
+		} else {obj.setAttribute("style",params.style);}
+	    	
+	        
+	       var json = JSON.stringify(params);
+        obj.setAttribute("onclick","new Matrix().setEvent("+json+")"); 
+	    
+		
+	    if (params.parent) {
+		    obj.setAttribute("id",params.id); 
+			this.setLayer(params.parent);
+			document.getElementById(this.getLayer()).appendChild(obj);
+	    } else {  var symbol = document.createElementNS(this.getNS(),"symbol"); 
+		              symbol.setAttribute("id",params.id);  
+					  symbol.appendChild(obj);
+					  document.getElementById(this.getLayer()).appendChild(symbol);
+				  }
+     
+} 
+
+///////////////////////////////////////////////////////////////////////////////
+// 3. a simple rectangle  
 Matrix.prototype.Rect = function(params)
 {
  	
@@ -218,6 +306,10 @@ Matrix.prototype.Rect = function(params)
 		if (params.class) {
 			rect.setAttribute("class",params.class);
 		} else {rect.setAttribute("style",params.style);}
+		
+		var json = JSON.stringify(params);
+        rect.setAttribute("onclick","new Matrix().setEvent("+json+")"); 
+		
 		
 	    if (params.parent) {
 		    rect.setAttribute("id",params.id); 

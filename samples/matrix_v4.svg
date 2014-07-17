@@ -35,12 +35,18 @@ var params6 = {type:'text', parent: 'layer_0',id: 'text_1', x:10,y:10, style: 'f
 
 var defaults = {r: 11, cx:11, cy:11};
 
-var params7 = {type:'circle', parent: 'layer_0',id:'id_1', r: 4, cx:1, cy:1, style: 'stroke:#ff0000; stroke-width:0.15; fill:#00ffff;'};
-var params8 = {type:'circle', id:'id_1', r: 4, cx:8, cy:8, style: 'stroke:#fc0000; stroke-width:0.15; fill:#00ddff;'};
+var circle = {type:'circle', parent: 'layer_0',id:'id_1', r: 4, cx:1, cy:1, style: 'stroke:#ff0000; stroke-width:0.15; fill:#00ffff;'};
+var circle_as_symbol_style = {type:'circle', id:'id_2', r: 4, cx:8, cy:8, style: 'stroke:#fc0000; stroke-width:0.15; fill:#00ddff;'};
+var circle_as_symbol_class = {type:'circle', id:'id_3', r: 4, cx:8, cy:8, class:'node_2'};
 
-matrix.Element(params8);	
- matrix.Use({parent: "layer_0", href: "id_1", transform: "translate(10,10)"}); 
 
+matrix.Element(circle);	
+matrix.Element(circle_as_symbol_class);	
+matrix.Use({id: 'g_1', parent: "layer_1", href: "id_3", transform: "translate(5,10)"}); 
+
+matrix.Group();	
+
+	
 }
 
 
@@ -151,68 +157,8 @@ rect.col_2a { visibility: hidden }
 <g id="layer_1">
 
 
-<g id="matrix_1" transform="translate(15,10) scale(4)">
-
-<g transform="translate(2.35,-0.25) rotate(90)">
-<rect id="colbox_1" width="5.5" height="2.20" y="0" x="0"  rx="0.25"  ry="0.25"  class="col_2"></rect>
 </g>
 
-<g transform="translate(4.60,-0.25) rotate(90)">
-<rect id="colbox_2" width="5.5" height="2.20" y="0" x="0"  rx="0.25"  ry="0.25" class="col_2" ></rect>
-</g>
-
-<g transform="translate(6.85,-0.25) rotate(90)">
-<rect id="colbox_3" width="5.5" height="2.20" y="0" x="0"  rx="0.25"  ry="0.25" class="col_2" ></rect>
-</g>
-
-<g id="row_1" transform="translate(0,0.005) scale(1)" >
-<rect id="rowbox_1" width="7" height="2.5" y="0" x="0"  rx="0.25"  ry="0.25" class="row_1" ></rect>
-
-<g transform="translate(0.5,0.25)">
-
-<g id ="el_1" transform="translate(-0.25,0) scale(1)">
-        
-        <text x="1" y="1.35"  class="node_1" >1</text>
-</g> 
-
-<g transform="translate(2,0) scale(1)" >
-        <use xlink:href="#node" />
-        <text x="1" y="1.35"  class="node_1" >2</text>
-</g> 
-
-<g transform="translate(4.25,0) scale(1)" >
-        <use xlink:href="#node" />
-        <text x="1" y="1.35"  class="node_1" >3</text>
-</g> 
-
-</g>
-</g><desc>End of Row 1</desc>
-
-<g id="row_2" transform="translate(0,2.55) scale(1)">
-<rect id="rowbox_2" width="7" height="2.5" y="0" x="0"  rx="0.25"  ry="0.25" class="row_1"></rect>
-
-<g transform="translate(0.5,0.25)">
-<g transform="translate(-0.25,0) scale(1)">
-        <use xlink:href="#node" />
-        <text x="1" y="1.35"  class="node_1" >4</text>
-</g> 
-
-<g transform="translate(2,0) scale(1)" >
-        <use xlink:href="#node" />
-        <text x="1" y="1.35"  class="node_1" >5</text>
-</g> 
-
-<g transform="translate(4.25,0) scale(1)" >
-        <use xlink:href="#node" />
-        <text x="1" y="1.35"  class="node_1" >6</text>
-</g> 
-
-</g>
-</g><desc>End of Row 2</desc>
-
-</g><desc>End of Matrix 1</desc>
-
-</g><desc>End of Layer 1</desc>
 
 
 

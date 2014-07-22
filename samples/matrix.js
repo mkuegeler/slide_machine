@@ -180,48 +180,53 @@ Matrix.prototype.setEvent = function(params)
 
 Matrix.prototype.Use = function(params)
 {
-	var group = document.createElementNS(this.getNS(),"g");
+	// var group = document.createElementNS(this.getNS(),"g");
 	
-	    group.setAttribute("id",params.id); 
+	//    group.setAttribute("id",params.id); 
 	
-	var use = document.getElementById(params.href);	
+	 // var use = document.getElementById(params.href);	
 	
 	var use = document.createElementNS(this.getNS(),"use"); 
+	
+	    use.setAttribute("id",params.id); 
 	    
 	    use.setAttributeNS(this.getxlinkNS(),"xlink:href","#"+params.href);
 	    
-	    group.setAttribute("transform",params.transform);
+	    use.setAttribute("transform",params.transform);
 	    
-	    group.appendChild(use);
+	    // group.appendChild(use);
 	    
 	    this.setLayer(params.parent);
         
-        document.getElementById(this.getLayer()).appendChild(group);
+        document.getElementById(this.getLayer()).appendChild(use);
      
 }
 ///////////////////////////////////////////////////////////////////////////////
 // Create a "Group" element and add children
 ///////////////////////////////////////////////////////////////////////////////
 
-Matrix.prototype.Group = function()
+Matrix.prototype.Group = function(params)
 {
-	//var group = document.createElementNS(this.getNS(),"g");
+	 var group = document.createElementNS(this.getNS(),"g");
 	
-	    //group.setAttribute("id",params.id); 
+	     group.setAttribute("id",params.id); 
 	    
-	    //group.setAttribute("transform",params.transform);
+	     if (params.transform) {
+	     	group.setAttribute("transform",params.transform);
+	     }
+	     // var params = {"children":["child1","child2","child3"]};
+	   
+	     if (params.children) {
+	    	
+	    	for (child in params.children) {
+	    	    console.log(params.children[child]);
+	    	         group.appendChild(document.getElementById(params.children[child]));
+	        }
+	    	
+	     }
 	    
-	    var params = {"children":["child1","child2","child3"]};
-	    
-	    for (child in params.children) {
-	    	console.log(params.children[child]);
-	    }
-	    
-	    //group.appendChild(params.children);
-	    
-	    //this.setLayer(params.parent);
-        
-        //document.getElementById(this.getLayer()).appendChild(group);
+	     this.setLayer(params.parent);
+         document.getElementById(this.getLayer()).appendChild(group);
      
 }
 ///////////////////////////////////////////////////////////////////////////////

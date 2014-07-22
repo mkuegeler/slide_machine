@@ -35,16 +35,24 @@ var params6 = {type:'text', parent: 'layer_0',id: 'text_1', x:10,y:10, style: 'f
 
 var defaults = {r: 11, cx:11, cy:11};
 
-var circle = {type:'circle', parent: 'layer_0',id:'id_1', r: 4, cx:1, cy:1, style: 'stroke:#ff0000; stroke-width:0.15; fill:#00ffff;'};
+var circle1 = {type:'circle', parent: 'layer_0',id:'id_1', r: 4, cx:1, cy:1, style: 'stroke:#ff0000; stroke-width:0.15; fill:#00ffff;'};
+var circle2 = {type:'circle', parent: 'layer_0',id:'id_1a', r: 2, cx:1, cy:1, style: 'stroke:#ff0000; stroke-width:0.15; fill:#00ffff;'};
+var circle3 = {type:'circle', parent: 'layer_0',id:'id_1b', r: 5, cx:1, cy:1, style: 'stroke:#ff0000; stroke-width:0.15; fill:#00ffff;'};
+
+
 var circle_as_symbol_style = {type:'circle', id:'id_2', r: 4, cx:8, cy:8, style: 'stroke:#fc0000; stroke-width:0.15; fill:#00ddff;'};
 var circle_as_symbol_class = {type:'circle', id:'id_3', r: 4, cx:8, cy:8, class:'node_2'};
 
 
-matrix.Element(circle);	
+matrix.Element(circle1);
+matrix.Element(circle2);
+matrix.Element(circle3);	
 matrix.Element(circle_as_symbol_class);	
-matrix.Use({id: 'g_1', parent: "layer_1", href: "id_3", transform: "translate(5,10)"}); 
+// matrix.Use({id: 'g_1', parent: "layer_1", href: "id_3", transform: "translate(5,12)"}); 
 
-matrix.Group();	
+
+var gparams = {id: 'group1', parent: "layer_1", transform: "translate(15,5)", "children":["id_1","id_1a","id_3"]};
+matrix.Group(gparams);	
 
 	
 }
